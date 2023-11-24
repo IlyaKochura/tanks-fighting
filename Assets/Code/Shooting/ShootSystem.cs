@@ -21,7 +21,7 @@ namespace Code.Shooting
             foreach (var entity in _filterShoter)
             {
                 ref var shooter = ref _shooterPool.Get(entity);
-                shooter.CurrentWeapon.Shoot(shooter.StartShootPos);
+                shooter.CurrentWeapon.Shoot(shooter.StartShootPos, shooter.CannonEndPos);
             }
         }
     }

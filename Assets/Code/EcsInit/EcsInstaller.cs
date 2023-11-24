@@ -1,5 +1,6 @@
 using AB_Utility.FromSceneToEntityConverter;
 using Code.Input;
+using Code.MonstersLogic;
 using Code.Movement;
 using Code.Shooting;
 using Code.Shooting.Components;
@@ -40,6 +41,7 @@ namespace Code.EcsInit
             RegisterInput();
             RegisterMovement();
             RegisterShootSystems();
+            RegisterMonstersLogic();
 
             _systems?.Init ();
         }
@@ -77,6 +79,11 @@ namespace Code.EcsInit
                 .Add(new RegisterShootSystem(_movableInputProvider))
                 .Add(new ShootSystem())
                 .DelHere<CShootOneFrame>();
+        }
+
+        private void RegisterMonstersLogic()
+        {
+            _systems.Add(new MonsterSystem());
         }
 
         void OnDestroy()

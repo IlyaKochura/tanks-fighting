@@ -5,9 +5,14 @@ namespace Code.Shooting
 {
     public class Projectile : MonoBehaviour, IRecycle
     {
-        private void Update()
+        public void Shoot(Vector3 shootDir)
         {
-            transform.Translate(Vector3.forward * 50f * Time.deltaTime);
+            GetComponent<Rigidbody>().AddForce(shootDir * 10, ForceMode.Impulse);
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            Recycle();
         }
 
         public void Recycle()

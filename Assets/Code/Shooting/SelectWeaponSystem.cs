@@ -5,14 +5,13 @@ using Code.Shooting.Components;
 using Code.Shooting.Contracts;
 using Leopotam.EcsLite;
 using ObjectPool.Contracts;
-using UnityEngine;
 
 namespace Code.Shooting
 {
     public class SelectWeaponSystem : IEcsInitSystem
     {
         private const int StartWeaponIndex = 0;
-        
+
         private readonly Projectile _projectile;
         private readonly IObjectPool _objectPool;
         private readonly MovableInputProvider _movableInputProvider;
@@ -20,10 +19,10 @@ namespace Code.Shooting
         private EcsPool<CShooter> _shooterPool;
 
         private List<IWeapon> _weapons = new();
-        private IWeapon _currentWeapon;
         private int _currentWeaponIndex;
 
-        public SelectWeaponSystem(Projectile projectile, IObjectPool objectPool, MovableInputProvider movableInputProvider)
+        public SelectWeaponSystem(Projectile projectile, IObjectPool objectPool,
+            MovableInputProvider movableInputProvider)
         {
             _projectile = projectile;
             _objectPool = objectPool;
@@ -36,12 +35,12 @@ namespace Code.Shooting
 
             _shooterFilter = world.Filter<CShooter>().Inc<CPlayerControlled>().End();
             _shooterPool = world.GetPool<CShooter>();
-            
-            _weapons.Add(new MachineGun(_projectile, _objectPool));
+
+            _weapons.Add(new LazerGun(_projectile, _objectPool));
             _weapons.Add(new TankCannon(_projectile, _objectPool));
 
             _currentWeaponIndex = StartWeaponIndex;
-            
+
             Select();
 
             _movableInputProvider.LeftWeaponSelect += DecrementIndex;
@@ -52,14 +51,13 @@ namespace Code.Shooting
         {
             if (_currentWeaponIndex <= 0)
             {
-                
                 return;
             }
 
             _currentWeaponIndex--;
             Select();
         }
-        
+
         private void IncrementIndex()
         {
             if (_currentWeaponIndex >= _weapons.Count - 1)
@@ -78,6 +76,10 @@ namespace Code.Shooting
                 ref var shooter = ref _shooterPool.Get(entity);
 
                 shooter.CurrentWeapon = _weapons[_currentWeaponIndex];
+                
+                shooter.WeaponsViewsContainer.DisableAll();
+
+                shooter.WeaponsViewsContainer.EnableWeaponView(shooter.CurrentWeapon.WeaponsViewVariant);
             }
         }
     }

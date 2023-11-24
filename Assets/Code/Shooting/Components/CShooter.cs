@@ -9,5 +9,7 @@ namespace Code.Shooting.Components
     {
         public IWeapon CurrentWeapon;
         public Transform StartShootPos;
+        public Transform CannonEndPos;
+        public WeaponsViewsContainer WeaponsViewsContainer;
     }
 }

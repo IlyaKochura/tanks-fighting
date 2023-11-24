@@ -66,7 +66,7 @@
      <Compile Include="Assets\Code\Shooting\Contracts\IWeapon.cs" />
      <Compile Include="Assets\Code\Shooting\Components\CShooter.cs" />
      <Compile Include="Assets\Code\Shooting\Components\CMonoShooter.cs" />
-     <Compile Include="Assets\Code\Shooting\MachineGun.cs" />
+     <Compile Include="Assets\Code\Shooting\LazerGun.cs" />
      <Compile Include="Assets\Code\Shooting\Contracts\IShootingDriver.cs" />
      <Compile Include="Assets\Code\Shooting\TankCannon.cs" />
      <Compile Include="Assets\Code\Shooting\SelectWeaponSystem.cs" />
@@ -74,6 +74,14 @@
      <Compile Include="Assets\Code\Shooting\ShootSystem.cs" />
      <Compile Include="Assets\Code\Shooting\Components\CShootOneFrame.cs" />
      <Compile Include="Assets\Code\Shooting\RegisterShootSystem.cs" />
+     <Compile Include="Assets\Code\MonstersLogic\MonsterSystem.cs" />
+     <Compile Include="Assets\Code\MonstersLogic\Components\CMonoNavMeshAgentContainer.cs" />
+     <Compile Include="Assets\Code\MonstersLogic\Components\CMonster.cs" />
+     <Compile Include="Assets\Code\MonstersLogic\Components\CMonoMonster.cs" />
+     <Compile Include="Assets\Code\MonstersLogic\Components\CNavMeshAgentContainer.cs" />
+     <Compile Include="Assets\Code\Shooting\WeaponView.cs" />
+     <Compile Include="Assets\Code\Shooting\Enums\WeaponsViewVariants.cs" />
+     <Compile Include="Assets\Code\Shooting\WeaponsViewsContainer.cs" />
      <Folder Include="Assets\Code\EcsInit" />
      <Folder Include="Assets\Code\Shooting" />
      <Folder Include="Assets\Code\Input\Controls" />
@@ -83,8 +91,12 @@
      <Folder Include="Assets\Code\Input" />
      <Folder Include="Assets\Code\Movement" />
      <Folder Include="Assets\Code" />
+     <Folder Include="Assets\Code\MonstersLogic" />
      <None Include="Assets\Code\Code.asmdef" />
      <Folder Include="Assets\Code\Shooting\Contracts" />
+     <Folder Include="Assets\Code\MonstersLogic\Contracts" />
+     <Folder Include="Assets\Code\MonstersLogic\Components" />
+     <Folder Include="Assets\Code\Shooting\Enums" />
      <Reference Include="UnityEngine">
      <HintPath>D:\UnityEngine\2021.3.22f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
