@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.supremestranger.leoecs-lite-physics", "com.supremestranger.leoecs-lite-physics.csproj", "{d8aaac0b-8f17-0b20-7543-fce16dd03406}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameLib.ObjectPool.Runtime", "GameLib.ObjectPool.Runtime.csproj", "{3862603d-bdd3-5349-cd0e-e8f85bfac781}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Code", "Code.csproj", "{9c5ed9ef-d245-2b05-62cd-301cab4f8453}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeoEcsLiteEntityConverter", "LeoEcsLiteEntityConverter.csproj", "{c77ecb3d-704d-79c0-5069-499454f0fad0}"
@@ -12,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-IntegrationTests-Editor", "Zenject-IntegrationTests-Editor.csproj", "{e03a9214-05f2-6f41-6627-af9d40a665d9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-IntegrationTests", "Zenject-IntegrationTests.csproj", "{52d43061-c805-f730-e0dd-e149d8f57457}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gamelib.ScreenManager.Runtime", "Gamelib.ScreenManager.Runtime.csproj", "{09b36a09-d07a-cc04-d4bb-d9302acd842e}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-PoolMonitor-Editor", "Zenject-PoolMonitor-Editor.csproj", "{bfa0a3da-85ad-ce2b-0f28-981f7a3b404e}"
 EndProject
@@ -34,6 +38,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{d8aaac0b-8f17-0b20-7543-fce16dd03406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{d8aaac0b-8f17-0b20-7543-fce16dd03406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3862603d-bdd3-5349-cd0e-e8f85bfac781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3862603d-bdd3-5349-cd0e-e8f85bfac781}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9c5ed9ef-d245-2b05-62cd-301cab4f8453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9c5ed9ef-d245-2b05-62cd-301cab4f8453}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{c77ecb3d-704d-79c0-5069-499454f0fad0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -44,6 +50,8 @@ Global
 		{e03a9214-05f2-6f41-6627-af9d40a665d9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52d43061-c805-f730-e0dd-e149d8f57457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{52d43061-c805-f730-e0dd-e149d8f57457}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09b36a09-d07a-cc04-d4bb-d9302acd842e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09b36a09-d07a-cc04-d4bb-d9302acd842e}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{bfa0a3da-85ad-ce2b-0f28-981f7a3b404e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{bfa0a3da-85ad-ce2b-0f28-981f7a3b404e}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{144f00f8-9f09-c716-695f-39f54c827d13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

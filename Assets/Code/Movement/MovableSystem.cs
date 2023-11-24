@@ -8,6 +8,7 @@ namespace Code.Movement
         private EcsFilter _filter;
         private EcsPool<CMovable> _movablePool;
         private EcsPool<CTransform> _transformPool;
+        private EcsPool<CRigidbody> _rigidbodyPool;
 
         public void Init(IEcsSystems systems)
         {
@@ -23,18 +24,12 @@ namespace Code.Movement
             {
                 ref var transform = ref _transformPool.Get(entity);
                 ref var movable = ref _movablePool.Get(entity);
-                
-                transform.transform.position += movable.velocity;
-                
-                if (movable.velocity.magnitude > movable.maxSpeed)
-                {
-                    movable.velocity.Normalize();
-                    movable.velocity *= movable.maxSpeed;
-                }
 
-                movable.velocity *= movable.damping;
-                
-                transform.transform.LookAt(transform.transform.position + movable.velocity, Vector3.up);
+                transform.transform.Translate(Vector3.forward * movable.movement);
+                transform.transform.Rotate(Vector3.up * movable.rotation);
+
+                movable.movement *= movable.dampingMovement;
+                movable.rotation *= movable.dampingRotation;
             }
         }
     }

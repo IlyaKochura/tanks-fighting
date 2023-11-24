@@ -1,24 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using Code.Input.Touchscreen;
+using Code.Input.Keyboard;
 using UnityEngine;
 
 namespace Code.Input
 {
     public class MovableInputProvider : MonoBehaviour
     {
-        [SerializeField] private FloatingJoystick _floatingJoystick;
         public Action<bool> OnMove { get; set; }
 
         private List<IMovableInputController> _movableInputControllers;
         public bool IsMovePressed { get; private set; }
-        public Vector2 Direction { get; private set; }
+        public float Movement { get; private set; }
+        public float Rotation { get; private set; }
         
         public void Awake()
         {
             _movableInputControllers = new List<IMovableInputController>();
+
+            var input = new KeyboardInputController();
             
-            _movableInputControllers.Add(new SimpleMoveTouchController(_floatingJoystick));
+            _movableInputControllers.Add(input);
 
             foreach (var controller in _movableInputControllers)
             {
@@ -42,9 +44,10 @@ namespace Code.Input
             OnMove?.Invoke(isMovePressed);
         }
 
-        private void UpdateDirection(Vector2 direction)
+        private void UpdateDirection(float movement, float rotation)
         {
-            Direction = direction;
+            Movement = movement;
+            Rotation = rotation;
         }
 
         public void Update()

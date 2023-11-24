@@ -1,4 +1,5 @@
 ﻿using Leopotam.EcsLite;
+using UnityEngine;
 
 namespace Code.Input
 {
@@ -28,7 +29,8 @@ namespace Code.Input
 
             var entity = _world.NewEntity();
             ref var moveInput = ref _moveInputPool.Add(entity);
-            moveInput.Direction = _movableInputProvider.Direction;
+            moveInput.Movement = _movableInputProvider.Movement;
+            moveInput.Rotation = _movableInputProvider.Rotation;
         }
     }
 }

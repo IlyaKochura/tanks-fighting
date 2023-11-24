@@ -32,10 +32,11 @@ namespace Code.Movement
                     ref var movable = ref _movablePool.Get(entity);
                     var moveEngine = _moveEnginePool.Get(entity);
                     var input = _moveInputPool.Get(inputEntity);
-
-                    Vector3 direction = new Vector3(input.Direction.x, 0, input.Direction.y);
-                    var temp = direction  * (moveEngine.force * Time.deltaTime);
-                    movable.velocity += temp;
+                    
+                    var tempRotation = input.Rotation * (moveEngine.forceRotation * Time.deltaTime);
+                    var tempMovement = input.Movement  * (moveEngine.forceMovement  * Time.deltaTime);
+                    movable.movement += tempMovement;
+                    movable.rotation += tempRotation;
                 }
             }
         }

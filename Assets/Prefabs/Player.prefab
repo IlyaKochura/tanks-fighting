@@ -350,6 +350,7 @@ GameObject:
   - component: {fileID: 5201977290538656226}
   - component: {fileID: 5201977290538656224}
   - component: {fileID: 5201977290538656225}
+  - component: {fileID: 830888491}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -392,7 +393,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &5442992448423104237
 BoxCollider:
@@ -425,6 +426,7 @@ MonoBehaviour:
   - {fileID: 5201977290538656252}
   - {fileID: 5201977290538656253}
   - {fileID: 5201977290538656226}
+  - {fileID: 830888491}
   _checkers:
   - {fileID: 5201977290538656224}
   - {fileID: 5201977290538656225}
@@ -509,6 +511,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13ba7765e2beb5b469a9a1750852f513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &830888491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5201977290538656230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a626820f27948e8aee9c3f3c0d06e7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _component:
+    rigidbody: {fileID: 5201977290538656249}
 --- !u!1 &5201977291087986832
 GameObject:
   m_ObjectHideFlags: 0
