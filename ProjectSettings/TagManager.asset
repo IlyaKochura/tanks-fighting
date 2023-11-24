@@ -6,6 +6,10 @@ TagManager:
   tags:
   - AdderStack
   - GetterStack
+  - ship
+  - asteroid
+  - TankCannon
+  - MachineGun
   layers:
   - Default
   - TransparentFX

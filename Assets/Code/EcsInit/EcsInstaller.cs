@@ -1,9 +1,12 @@
 using AB_Utility.FromSceneToEntityConverter;
 using Code.Input;
 using Code.Movement;
+using Code.Shooting;
+using Code.Shooting.Components;
 using LeoEcsPhysics;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.ExtendedSystems;
+using ObjectPool.Contracts;
 using UnityEngine;
 #if UNITY_EDITOR
 using Leopotam.EcsLite.UnityEditor;
@@ -15,6 +18,7 @@ namespace Code.EcsInit
     public class EcsInstaller : MonoInstaller
     {
         [SerializeField] private MovableInputProvider _movableInputProvider;
+        [SerializeField] private Projectile _projectile;
         
         EcsWorld _world;
         IEcsSystems _systems;
@@ -35,6 +39,7 @@ namespace Code.EcsInit
             RegisterDebug();
             RegisterInput();
             RegisterMovement();
+            RegisterShootSystems();
 
             _systems?.Init ();
         }
@@ -62,6 +67,16 @@ namespace Code.EcsInit
             _systems.Add(new EcsWorldDebugSystem())
                 .Add(new EcsSystemsDebugSystem());
 #endif
+        }
+
+        private void RegisterShootSystems()
+        {
+            var objectPool = Container.Resolve<IObjectPool>();
+
+            _systems.Add(new SelectWeaponSystem(_projectile, objectPool, _movableInputProvider))
+                .Add(new RegisterShootSystem(_movableInputProvider))
+                .Add(new ShootSystem())
+                .DelHere<CShootOneFrame>();
         }
 
         void OnDestroy()

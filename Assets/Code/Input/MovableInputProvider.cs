@@ -13,6 +13,14 @@ namespace Code.Input
         public bool IsMovePressed { get; private set; }
         public float Movement { get; private set; }
         public float Rotation { get; private set; }
+
+        public event Action FireEvent;
+        public event Action LeftWeaponSelect;
+        public event Action RightWeaponSelect;
+
+        // public bool Fire { get; private set; }
+        // public bool LeftWeaponSelect { get; private set; }
+        // public bool RightWeaponSelect { get; private set; }
         
         public void Awake()
         {
@@ -26,8 +34,26 @@ namespace Code.Input
             {
                 controller.OnMovePressed += MovePressed;
                 controller.OnMove += UpdateDirection;
+                controller.OnFirePressed += UpdateFire;
+                controller.OnLeftWeaponSelected += UpdateLeftWeaponSelected;
+                controller.OnRightWeaponSelected += UpdateRightWeaponSelected;
                 controller.Init();
             }
+        }
+
+        private void UpdateRightWeaponSelected(bool obj)
+        {
+            RightWeaponSelect?.Invoke();
+        }
+
+        private void UpdateLeftWeaponSelected(bool obj)
+        {
+            LeftWeaponSelect?.Invoke();
+        }
+
+        private void UpdateFire(bool fire)
+        {
+            FireEvent?.Invoke();
         }
 
         public void Start()
@@ -64,6 +90,9 @@ namespace Code.Input
             {
                 controller.OnMovePressed -= MovePressed;
                 controller.OnMove -= UpdateDirection;
+                controller.OnFirePressed -= UpdateFire;
+                controller.OnLeftWeaponSelected -= UpdateLeftWeaponSelected;
+                controller.OnRightWeaponSelected -= UpdateRightWeaponSelected;
                 controller.Disable();
             }
         }
