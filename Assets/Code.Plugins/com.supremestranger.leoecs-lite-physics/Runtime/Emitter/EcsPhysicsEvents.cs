@@ -166,6 +166,7 @@ namespace LeoEcsPhysics
         public static void RegisterDamageEvent(int entity, float applyDamage)
         {
             var pool = ecsWorld.GetPool<DamageEvent>();
+            if (pool.Has(entity)) return;
             ref var damageEvent = ref pool.Add(entity);
             damageEvent.applyDamage = applyDamage;
         }
