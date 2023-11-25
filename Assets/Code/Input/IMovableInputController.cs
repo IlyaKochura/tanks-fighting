@@ -12,7 +12,6 @@ namespace Code.Input
         public event Action<bool> OnRightWeaponSelected;
         public void Update();
         public void Init();
-        public void Start();
         public void Disable();
     }
 }

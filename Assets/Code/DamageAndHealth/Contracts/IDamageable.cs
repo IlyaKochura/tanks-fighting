@@ -1,4 +1,4 @@
-namespace Code.Shooting.Contracts
+namespace Code.DamageAndHealth.Contracts
 {
     public interface IDamageable
     {

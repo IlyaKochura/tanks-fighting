@@ -10,11 +10,13 @@ using LeoEcsPhysics;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.ExtendedSystems;
 using ObjectPool.Contracts;
+using ScreenManager.Runtime.Contracts;
 using UnityEngine;
 #if UNITY_EDITOR
 using Leopotam.EcsLite.UnityEditor;
 #endif
 using Zenject;
+using DestroyEntitySystem = Code.DamageAndHealth.Systems.DestroyEntitySystem;
 
 namespace Code.EcsInit
 {
@@ -25,6 +27,8 @@ namespace Code.EcsInit
 
         EcsWorld _world;
         IEcsSystems _systems;
+        private IObjectPool _objectPool;
+        private IScreenManager _screenManager;
 
         public override void InstallBindings()
         {
@@ -36,6 +40,9 @@ namespace Code.EcsInit
         {
             EcsPhysicsEvents.ecsWorld = _world;
             _systems = new EcsSystems (_world);
+            
+            _objectPool = Container.Resolve<IObjectPool>();
+            _screenManager = Container.Resolve<IScreenManager>();
             
             _world.ConvertSceneFromWorld();
             
@@ -62,7 +69,7 @@ namespace Code.EcsInit
         private void RegisterMovement()
         {
             _systems.Add(new PlayerMovementSystem())
-                .Add(new MovableSystem())
+                .Add(new PlayerMovableSystem())
                 .DelHere<CMoveInputEvent>();
         }
 
@@ -76,9 +83,7 @@ namespace Code.EcsInit
 
         private void RegisterShootSystems()
         {
-            var objectPool = Container.Resolve<IObjectPool>();
-
-            _systems.Add(new SelectWeaponSystem(objectPool, _movableInputProvider, _mainConfig))
+            _systems.Add(new SelectWeaponSystem(_objectPool, _movableInputProvider, _mainConfig))
                 .Add(new RegisterShootSystem(_movableInputProvider))
                 .Add(new ShootSystem())
                 .DelHere<CShootOneFrame>();
@@ -86,14 +91,16 @@ namespace Code.EcsInit
 
         private void RegisterMonstersLogic()
         {
-            _systems.Add(new MonsterSystem());
+            _systems.Add(new MonsterSystem())
+                .Add(new SpawnMonsterSystem(_mainConfig));
         }
 
         private void RegisterDamageSystems()
         {
             _systems.Add(new DamageSystem())
                 .DelHere<DamageEvent>()
-                .Add(new DeathSystem());
+                .Add(new DeathSystem())
+                .Add(new DestroyEntitySystem(_screenManager));
         }
 
         void OnDestroy()

@@ -1,9 +1,7 @@
 ﻿using System;
 using GameLib.LeoEcsLite.Wrapper.Components;
 using Leopotam.EcsLite;
-
 using UnityEngine;
-
 using Object = UnityEngine.Object;
 
 namespace AB_Utility.FromSceneToEntityConverter
@@ -65,7 +63,7 @@ namespace AB_Utility.FromSceneToEntityConverter
             var poolConverted = world.GetPool<CConvertedGameObject>();
             ref var component = ref poolConverted.Add(entity);
             component.GameObject = container.gameObject;
-            
+
             container.SaveEntity(entity);
 
             for (int j = 0; j < container.Converters.Length; j++)
@@ -84,6 +82,7 @@ namespace AB_Utility.FromSceneToEntityConverter
                 UnityEngine.Object.Destroy(container);
             }
         }
+        
 
         private static void ConvertObject(GameObject obj, EcsWorld world)
         {

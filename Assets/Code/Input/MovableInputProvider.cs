@@ -18,10 +18,6 @@ namespace Code.Input
         public event Action LeftWeaponSelect;
         public event Action RightWeaponSelect;
 
-        // public bool Fire { get; private set; }
-        // public bool LeftWeaponSelect { get; private set; }
-        // public bool RightWeaponSelect { get; private set; }
-        
         public void Awake()
         {
             _movableInputControllers = new List<IMovableInputController>();
@@ -56,14 +52,6 @@ namespace Code.Input
             FireEvent?.Invoke();
         }
 
-        public void Start()
-        {
-            foreach (var controller in _movableInputControllers)
-            {
-                controller?.Start();
-            }
-        }
-        
         private void MovePressed(bool isMovePressed)
         {
             IsMovePressed = isMovePressed;

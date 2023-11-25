@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lazerGunDamage: 70
   _tankCannonDamage: 90
-  _monsterLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  _lazerGunEffect: {fileID: 5724181697269885966, guid: 0cb63513cf0ed3645903b7261835425c, type: 3}
+  _lazerGunEffect: {fileID: -7963744207898493049, guid: 0cb63513cf0ed3645903b7261835425c, type: 3}
   _projectilePrefab: {fileID: 466411363453399093, guid: 6b27e4012ea35f34fba9adcc97447859, type: 3}
+  _monsters:
+  - monsterPrefab: {fileID: 5247619671985280744, guid: 29a5162c44ed16e40aa588c01d9cada4, type: 3}
+    chanceSpawn: 0
+  - monsterPrefab: {fileID: 1076781582927293253, guid: 558ae74fb1668204f934e86598f2eb45, type: 3}
+    chanceSpawn: 1
+  _maxMonsterSpawned: 10

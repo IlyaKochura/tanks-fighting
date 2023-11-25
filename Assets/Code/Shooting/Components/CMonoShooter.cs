@@ -4,6 +4,5 @@ namespace Code.Shooting.Components
 {
     public class CMonoShooter : ComponentConverter<CShooter>
     {
-        
     }
 }

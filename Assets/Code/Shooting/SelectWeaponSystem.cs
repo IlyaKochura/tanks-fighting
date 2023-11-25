@@ -37,7 +37,7 @@ namespace Code.Shooting
             _shooterFilter = world.Filter<CShooter>().Inc<CPlayerControlled>().End();
             _shooterPool = world.GetPool<CShooter>();
 
-            _weapons.Add(new LazerGun(_mainConfig));
+            _weapons.Add(new LazerGun(_mainConfig, _objectPool));
             _weapons.Add(new TankCannon(_mainConfig, _objectPool));
 
             _currentWeaponIndex = StartWeaponIndex;

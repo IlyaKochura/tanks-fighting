@@ -4,6 +4,5 @@ namespace Code.Movement
 {
     public class CMonoPlayerControlled : ComponentConverter<CPlayerControlled>
     {
-        
     }
 }

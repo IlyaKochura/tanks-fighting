@@ -7,7 +7,6 @@ namespace Code.EcsInit
         void Start()
         {
             DisableAutoRotation();
-            Application.targetFrameRate = 60;
         }
         
         private void DisableAutoRotation() {

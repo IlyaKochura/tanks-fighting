@@ -32,11 +32,6 @@ namespace Code.Input.Keyboard
             _gamePlayerInput.Player.SwitchRight.started += ( context ) => OnRightWeaponSelected?.Invoke(context.started);
         }
 
-        public void Start()
-        {
-            
-        }
-
         public void Disable()
         {
             _gamePlayerInput.Disable();

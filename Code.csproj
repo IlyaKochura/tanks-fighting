@@ -43,12 +43,9 @@
   <ItemGroup>
      <Compile Include="Assets\Code\Shooting\WeaponView.cs" />
      <Compile Include="Assets\Code\Shooting\Contracts\IWeapon.cs" />
-     <Compile Include="Assets\Code\Input\Touchscreen\FloatingJoystick.cs" />
      <Compile Include="Assets\Code\Movement\PlayerMovementSystem.cs" />
-     <Compile Include="Assets\Code\Movement\MovableSystem.cs" />
+     <Compile Include="Assets\Code\Movement\PlayerMovableSystem.cs" />
      <Compile Include="Assets\Code\Movement\CTransform.cs" />
-     <Compile Include="Assets\Code\Input\Touchscreen\SimpleMoveTouchController.cs" />
-     <Compile Include="Assets\Code\Shooting\Contracts\IShootingDriver.cs" />
      <Compile Include="Assets\Code\Movement\CMonoPlayerControlled.cs" />
      <Compile Include="Assets\Code\EcsInit\Initialize.cs" />
      <Compile Include="Assets\Code\Input\MoveInputSystem.cs" />
@@ -63,7 +60,6 @@
      <Compile Include="Assets\Code\Movement\CMonoMovable.cs" />
      <Compile Include="Assets\Code\MonstersLogic\Components\CMonoMonster.cs" />
      <Compile Include="Assets\Code\Movement\CMonoMoveEngine.cs" />
-     <Compile Include="Assets\Code\Movement\CMonoRigidbody.cs" />
      <Compile Include="Assets\Code\Shooting\Components\CMonoShooter.cs" />
      <Compile Include="Assets\Code\Shooting\WeaponsViewsContainer.cs" />
      <Compile Include="Assets\Code\Input\Keyboard\KeyboardInputController.cs" />
@@ -74,7 +70,6 @@
      <Compile Include="Assets\Code\MonstersLogic\Components\CMonoNavMeshAgentContainer.cs" />
      <Compile Include="Assets\Code\Shooting\TankCannon.cs" />
      <Compile Include="Assets\Code\Shooting\SelectWeaponSystem.cs" />
-     <Compile Include="Assets\Code\Movement\CRigidbody.cs" />
      <Compile Include="Assets\Code\Movement\CPlayerControlled.cs" />
      <Compile Include="Assets\Code\Input\IMovableInputController.cs" />
      <Compile Include="Assets\Code\Shooting\Components\CShootOneFrame.cs" />
@@ -94,27 +89,39 @@
      <Compile Include="Assets\Code\DamageAndHealth\Systems\DamageSystem.cs" />
      <Compile Include="Assets\Code\DamageAndHealth\Components\DeathEvent.cs" />
      <Compile Include="Assets\Code\DamageAndHealth\DamageDealer.cs" />
+     <Compile Include="Assets\Code\MonstersLogic\Model\SpawnMonsterModel.cs" />
+     <Compile Include="Assets\Code\MonstersLogic\Components\CMonsterSpawner.cs" />
+     <Compile Include="Assets\Code\MonstersLogic\Components\CMonoMonsterSpawner.cs" />
+     <Compile Include="Assets\Code\MonstersLogic\SpawnMonsterSystem.cs" />
+     <Compile Include="Assets\Code\MonstersLogic\Components\CSpawnedMonsterCounter.cs" />
+     <Compile Include="Assets\Code\DamageAndHealth\Systems\DestroyEntitySystem.cs" />
+     <Compile Include="Assets\Code\UI\Views\DefeatView.cs" />
+     <Compile Include="Assets\Code\UI\Screens\DefeatScreen.cs" />
+     <Compile Include="Assets\Code\UI\UiInstaller.cs" />
+     <Compile Include="Assets\Code\Shooting\Lazer.cs" />
      <Folder Include="Assets\Code\EcsInit" />
      <Folder Include="Assets\Code\Configs" />
+     <Folder Include="Assets\Code\UI\Views" />
+     <Folder Include="Assets\Code\UI" />
      <Folder Include="Assets\Code\LifeTime" />
      <Folder Include="Assets\Code\Shooting" />
      <Folder Include="Assets\Code\Input\Controls" />
      <Folder Include="Assets\Code\DamageAndHealth\Systems" />
      <Folder Include="Assets\Code\Shooting\Components" />
      <Folder Include="Assets\Code\Input\Keyboard" />
-     <Folder Include="Assets\Code\Input\Touchscreen" />
      <Folder Include="Assets\Code\Input" />
      <Folder Include="Assets\Code\DamageAndHealth\Components" />
      <Folder Include="Assets\Code\Movement" />
      <Folder Include="Assets\Code" />
+     <Folder Include="Assets\Code\MonstersLogic\Model" />
      <Folder Include="Assets\Code\MonstersLogic" />
      <None Include="Assets\Code\Code.asmdef" />
      <Folder Include="Assets\Code\Shooting\Contracts" />
-     <Folder Include="Assets\Code\MonstersLogic\Contracts" />
      <Folder Include="Assets\Code\MonstersLogic\Components" />
      <Folder Include="Assets\Code\DamageAndHealth" />
      <Folder Include="Assets\Code\DamageAndHealth\Contracts" />
      <Folder Include="Assets\Code\Shooting\Enums" />
+     <Folder Include="Assets\Code\UI\Screens" />
      <Reference Include="UnityEngine">
      <HintPath>D:\UnityEngine\2021.3.22f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
@@ -798,6 +805,9 @@
      </Reference>
      <Reference Include="Unity.InputSystem">
      <HintPath>E:\ProjectHome\tanks-fighting\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.TextMeshPro">
+     <HintPath>E:\ProjectHome\tanks-fighting\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
      <HintPath>E:\ProjectHome\tanks-fighting\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>

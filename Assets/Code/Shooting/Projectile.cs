@@ -1,4 +1,4 @@
-using Code.Shooting.Contracts;
+using Code.DamageAndHealth.Contracts;
 using ObjectPool.Runtime.Contracts;
 using UnityEngine;
 

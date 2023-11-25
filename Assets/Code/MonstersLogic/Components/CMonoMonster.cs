@@ -4,6 +4,5 @@ namespace Code.MonstersLogic.Components
 {
     public class CMonoMonster : ComponentConverter<CMonster>
     {
-        
     }
 }
