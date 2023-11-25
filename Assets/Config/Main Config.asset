@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lazerGunDamage: 70
   _tankCannonDamage: 90
+  _multiplierSpeedProjectile: 15
   _lazerGunEffect: {fileID: -7963744207898493049, guid: 0cb63513cf0ed3645903b7261835425c, type: 3}
   _projectilePrefab: {fileID: 466411363453399093, guid: 6b27e4012ea35f34fba9adcc97447859, type: 3}
   _monsters:

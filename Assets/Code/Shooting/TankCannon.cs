@@ -23,7 +23,7 @@ namespace Code.Shooting
             var spawnedObj = _objectPool.Spawn<Projectile>(_mainConfig.ProjectilePrefab.gameObject, positionShoot, shootPosition.localRotation);
             spawnedObj.tag = $"{nameof(TankCannon)}";
             
-            spawnedObj.SetupDamage(_mainConfig.TankCannonDamage);
+            spawnedObj.Setup(_mainConfig.TankCannonDamage, _mainConfig.MultiplierSpeedProjectile);
 
             var shootDir = (positionShoot - startPosition.position).normalized;
 

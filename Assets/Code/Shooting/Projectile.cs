@@ -8,16 +8,18 @@ namespace Code.Shooting
     {
         private Rigidbody _rigidbody;
         private int _damage;
+        private int _speed;
 
         public void Shoot(Vector3 shootDir)
         {
             _rigidbody = GetComponent<Rigidbody>();
-            _rigidbody.AddForce(shootDir * 10, ForceMode.Impulse);
+            _rigidbody.AddForce(shootDir * _speed, ForceMode.Impulse);
         }
 
-        public void SetupDamage(int damage)
+        public void Setup(int damage, int speed)
         {
             _damage = damage;
+            _speed = speed;
         }
 
         private void OnCollisionEnter(Collision collision)
