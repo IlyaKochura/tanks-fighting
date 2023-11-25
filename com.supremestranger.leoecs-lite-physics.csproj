@@ -72,6 +72,7 @@
      <Compile Include="Assets\Code.Plugins\com.supremestranger.leoecs-lite-physics\Runtime\Checkers\OnTriggerExitChecker.cs" />
      <Compile Include="Assets\Code.Plugins\com.supremestranger.leoecs-lite-physics\Runtime\Events\OnCollisionStayEvent.cs" />
      <Compile Include="Assets\Code.Plugins\com.supremestranger.leoecs-lite-physics\Runtime\Events\OnCollisionEnterEvent.cs" />
+     <Compile Include="Assets\Code.Plugins\com.supremestranger.leoecs-lite-physics\Runtime\Events\DamageEvent.cs" />
      <Folder Include="Assets\Code.Plugins\com.supremestranger.leoecs-lite-physics\Runtime" />
      <Folder Include="Assets\Code.Plugins\com.supremestranger.leoecs-lite-physics\Runtime\Helpers" />
      <Folder Include="Assets\Code.Plugins\com.supremestranger.leoecs-lite-physics\Runtime\Events" />
@@ -332,8 +333,14 @@
      <Reference Include="UnityEditor.WindowsStandalone.Extensions">
      <HintPath>D:\UnityEngine\2021.3.22f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
      </Reference>
+     <Reference Include="Zenject-usage">
+     <HintPath>E:\ProjectHome\tanks-fighting\Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.Plastic.Newtonsoft.Json">
      <HintPath>E:\ProjectHome\tanks-fighting\Library\PackageCache\com.unity.collab-proxy@2.0.1\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+     </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
+     <HintPath>E:\ProjectHome\tanks-fighting\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Plastic.Antlr3.Runtime">
      <HintPath>E:\ProjectHome\tanks-fighting\Library\PackageCache\com.unity.collab-proxy@2.0.1\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
@@ -347,6 +354,9 @@
      <Reference Include="Unity.VisualScripting.IonicZip">
      <HintPath>E:\ProjectHome\tanks-fighting\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
      </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
+     <HintPath>E:\ProjectHome\tanks-fighting\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
+     </Reference>
      <Reference Include="unityplastic">
      <HintPath>E:\ProjectHome\tanks-fighting\Library\PackageCache\com.unity.collab-proxy@2.0.1\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
      </Reference>
@@ -356,20 +366,11 @@
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
      <HintPath>E:\ProjectHome\tanks-fighting\Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
      </Reference>
-     <Reference Include="ReportGeneratorMerged">
-     <HintPath>E:\ProjectHome\tanks-fighting\Library\PackageCache\com.unity.testtools.codecoverage@1.2.2\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
-     </Reference>
-     <Reference Include="Zenject-usage">
-     <HintPath>E:\ProjectHome\tanks-fighting\Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
-     </Reference>
-     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
-     <HintPath>E:\ProjectHome\tanks-fighting\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
-     </Reference>
-     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
-     <HintPath>E:\ProjectHome\tanks-fighting\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
-     </Reference>
      <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
      <HintPath>E:\ProjectHome\tanks-fighting\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
+     </Reference>
+     <Reference Include="ReportGeneratorMerged">
+     <HintPath>E:\ProjectHome\tanks-fighting\Library\PackageCache\com.unity.testtools.codecoverage@1.2.2\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
      </Reference>
      <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
      <HintPath>E:\ProjectHome\tanks-fighting\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>

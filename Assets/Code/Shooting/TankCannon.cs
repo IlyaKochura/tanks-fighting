@@ -1,3 +1,4 @@
+using Code.Configs;
 using Code.Shooting.Contracts;
 using Code.Shooting.Enums;
 using ObjectPool.Contracts;
@@ -7,24 +8,25 @@ namespace Code.Shooting
 {
     public class TankCannon : IWeapon
     {
-        private readonly Projectile _projectile;
+        private readonly MainConfig _mainConfig;
         private readonly IObjectPool _objectPool;
         public WeaponsViewVariants WeaponsViewVariant => WeaponsViewVariants.TankCannon;
-        public TankCannon(Projectile projectile, IObjectPool objectPool)
+        public TankCannon(MainConfig mainConfig, IObjectPool objectPool)
         {
-            _projectile = projectile;
+            _mainConfig = mainConfig;
             _objectPool = objectPool;
         }
         
-        public void Shoot(Transform shootPos, Transform cannonEndPoint)
+        public void Shoot(Transform startPosition, Transform shootPosition)
         {
-            var positionStart = shootPos.position;
-            
-            var spawnedObj = _objectPool.Spawn<Projectile>(_projectile.gameObject, positionStart, shootPos.rotation);
+            var positionShoot = shootPosition.position;
+            var spawnedObj = _objectPool.Spawn<Projectile>(_mainConfig.ProjectilePrefab.gameObject, positionShoot, shootPosition.localRotation);
             spawnedObj.tag = $"{nameof(TankCannon)}";
             
-            var shootDir = (cannonEndPoint.position - positionStart).normalized;
-            
+            spawnedObj.SetupDamage(_mainConfig.TankCannonDamage);
+
+            var shootDir = (positionShoot - startPosition.position).normalized;
+
             spawnedObj.Shoot(shootDir);
         }
     }

@@ -162,5 +162,12 @@ namespace LeoEcsPhysics
             eventComponent.senderGameObject = senderGameObject;
             eventComponent.collider2D = collider2D;
         }
+        
+        public static void RegisterDamageEvent(int entity, float applyDamage)
+        {
+            var pool = ecsWorld.GetPool<DamageEvent>();
+            ref var damageEvent = ref pool.Add(entity);
+            damageEvent.applyDamage = applyDamage;
+        }
     }
 }

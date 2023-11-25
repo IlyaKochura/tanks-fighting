@@ -1,3 +1,4 @@
+using Code.DamageAndHealth.Components;
 using Code.MonstersLogic.Components;
 using Code.Movement;
 using Leopotam.EcsLite;
@@ -15,7 +16,7 @@ namespace Code.MonstersLogic
         {
             var world = systems.GetWorld();
 
-            _monsterFilter = world.Filter<CMonster>().Inc<CNavMeshAgentContainer>().End();
+            _monsterFilter = world.Filter<CMonster>().Inc<CNavMeshAgentContainer>().Exc<DeathEvent>().End();
             _playerFilter = world.Filter<CPlayerControlled>().Inc<CTransform>().End();
             _navMeshPool = world.GetPool<CNavMeshAgentContainer>();
             _transformPool = world.GetPool<CTransform>();

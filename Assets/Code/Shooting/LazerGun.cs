@@ -1,42 +1,41 @@
+using Code.Configs;
 using Code.Shooting.Contracts;
 using Code.Shooting.Enums;
-using ObjectPool.Contracts;
 using UnityEngine;
 
 namespace Code.Shooting
 {
     public class LazerGun : IWeapon
     {
-        private readonly Projectile _projectile;
-        private readonly IObjectPool _objectPool;
+        private readonly MainConfig _mainConfig;
         public WeaponsViewVariants WeaponsViewVariant => WeaponsViewVariants.LazerGun;
 
-        public LazerGun(Projectile projectile, IObjectPool objectPool /*, MainConfig*/)
+        public LazerGun(MainConfig mainConfig)
         {
-            _projectile = projectile;
-            _objectPool = objectPool;
-        }
-        
-        public void Shoot(Transform shootPos)
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                var spawnedObj = _objectPool.Spawn<Projectile>(_projectile.gameObject, shootPos.position, shootPos.rotation);
-                spawnedObj.gameObject.tag = $"{nameof(LazerGun)}";
-            }
+            _mainConfig = mainConfig;
         }
 
-        public void Shoot(Transform shootPos, Transform cannonEnd)
+        public void Shoot(Transform startPosition, Transform shootPosition)
         {
-            // Ray ray = new Ray(position, shootPos.forward);
-            // if (Physics.Raycast(ray, out var hit))
-            // {
-            //     //hit.rigidbody.AddForceAtPosition(ray.direction * 10, hit.point, ForceMode.Impulse);
-            //     Debug.DrawRay(position, );
-            //     Debug.LogError(hit.collider.tag);
-            // }
-            //
-            // Debug.LogError("TankCannonShoot");
+            var positionShoot = shootPosition.position;
+            var shootDir = (positionShoot - startPosition.position).normalized;
+
+            var ray = new Ray(positionShoot, shootDir);
+
+            Physics.Raycast(ray, out var hit);
+            
+            var lazerEffect =
+                Object.Instantiate(_mainConfig.LazerGunEffect, positionShoot, Quaternion.identity);
+            
+            var hitCollider = hit.collider;
+            if (hitCollider.TryGetComponent(out IDamageable damageable))
+            {
+                damageable.ApplyDamage(_mainConfig.LazerGunDamage);
+            }
+            
+            lazerEffect.SetPosition(0, shootPosition.position);
+            lazerEffect.SetPosition(1, hit.point);
+
         }
     }
 }

@@ -41,54 +41,70 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Code\Shooting\WeaponView.cs" />
+     <Compile Include="Assets\Code\Shooting\Contracts\IWeapon.cs" />
      <Compile Include="Assets\Code\Input\Touchscreen\FloatingJoystick.cs" />
      <Compile Include="Assets\Code\Movement\PlayerMovementSystem.cs" />
      <Compile Include="Assets\Code\Movement\MovableSystem.cs" />
      <Compile Include="Assets\Code\Movement\CTransform.cs" />
      <Compile Include="Assets\Code\Input\Touchscreen\SimpleMoveTouchController.cs" />
+     <Compile Include="Assets\Code\Shooting\Contracts\IShootingDriver.cs" />
      <Compile Include="Assets\Code\Movement\CMonoPlayerControlled.cs" />
      <Compile Include="Assets\Code\EcsInit\Initialize.cs" />
      <Compile Include="Assets\Code\Input\MoveInputSystem.cs" />
+     <Compile Include="Assets\Code\Shooting\Projectile.cs" />
+     <Compile Include="Assets\Code\MonstersLogic\MonsterSystem.cs" />
+     <Compile Include="Assets\Code\Shooting\RegisterShootSystem.cs" />
+     <Compile Include="Assets\Code\Shooting\Components\CShooter.cs" />
+     <Compile Include="Assets\Code\EcsInit\EcsInstaller.cs" />
+     <Compile Include="Assets\Code\Shooting\Enums\WeaponsViewVariants.cs" />
      <Compile Include="Assets\Code\Input\CMoveInputEvent.cs" />
+     <Compile Include="Assets\Code\MonstersLogic\Components\CMonster.cs" />
      <Compile Include="Assets\Code\Movement\CMonoMovable.cs" />
+     <Compile Include="Assets\Code\MonstersLogic\Components\CMonoMonster.cs" />
      <Compile Include="Assets\Code\Movement\CMonoMoveEngine.cs" />
+     <Compile Include="Assets\Code\Movement\CMonoRigidbody.cs" />
+     <Compile Include="Assets\Code\Shooting\Components\CMonoShooter.cs" />
+     <Compile Include="Assets\Code\Shooting\WeaponsViewsContainer.cs" />
+     <Compile Include="Assets\Code\Input\Keyboard\KeyboardInputController.cs" />
+     <Compile Include="Assets\Code\MonstersLogic\Components\CNavMeshAgentContainer.cs" />
+     <Compile Include="Assets\Code\Shooting\ShootSystem.cs" />
      <Compile Include="Assets\Code\Movement\CMovable.cs" />
      <Compile Include="Assets\Code\Movement\CMoveEngine.cs" />
-     <Compile Include="Assets\Code\Movement\CPlayerControlled.cs" />
-     <Compile Include="Assets\Code\Input\IMovableInputController.cs" />
-     <Compile Include="Assets\Code\Input\MovableInputProvider.cs" />
-     <Compile Include="Assets\Code\Movement\CMonoTransform.cs" />
-     <Compile Include="Assets\Code\EcsInit\EcsInstaller.cs" />
-     <Compile Include="Assets\Code\Input\Keyboard\KeyboardInputController.cs" />
-     <Compile Include="Assets\Code\Movement\CRigidbody.cs" />
-     <Compile Include="Assets\Code\Movement\CMonoRigidbody.cs" />
-     <Compile Include="Assets\Code\Shooting\Projectile.cs" />
-     <Compile Include="Assets\Code\Shooting\Contracts\IWeapon.cs" />
-     <Compile Include="Assets\Code\Shooting\Components\CShooter.cs" />
-     <Compile Include="Assets\Code\Shooting\Components\CMonoShooter.cs" />
-     <Compile Include="Assets\Code\Shooting\LazerGun.cs" />
-     <Compile Include="Assets\Code\Shooting\Contracts\IShootingDriver.cs" />
+     <Compile Include="Assets\Code\MonstersLogic\Components\CMonoNavMeshAgentContainer.cs" />
      <Compile Include="Assets\Code\Shooting\TankCannon.cs" />
      <Compile Include="Assets\Code\Shooting\SelectWeaponSystem.cs" />
-     <Compile Include="Assets\Code\Input\Controls\GamePlayerInput.cs" />
-     <Compile Include="Assets\Code\Shooting\ShootSystem.cs" />
+     <Compile Include="Assets\Code\Movement\CRigidbody.cs" />
+     <Compile Include="Assets\Code\Movement\CPlayerControlled.cs" />
+     <Compile Include="Assets\Code\Input\IMovableInputController.cs" />
      <Compile Include="Assets\Code\Shooting\Components\CShootOneFrame.cs" />
-     <Compile Include="Assets\Code\Shooting\RegisterShootSystem.cs" />
-     <Compile Include="Assets\Code\MonstersLogic\MonsterSystem.cs" />
-     <Compile Include="Assets\Code\MonstersLogic\Components\CMonoNavMeshAgentContainer.cs" />
-     <Compile Include="Assets\Code\MonstersLogic\Components\CMonster.cs" />
-     <Compile Include="Assets\Code\MonstersLogic\Components\CMonoMonster.cs" />
-     <Compile Include="Assets\Code\MonstersLogic\Components\CNavMeshAgentContainer.cs" />
-     <Compile Include="Assets\Code\Shooting\WeaponView.cs" />
-     <Compile Include="Assets\Code\Shooting\Enums\WeaponsViewVariants.cs" />
-     <Compile Include="Assets\Code\Shooting\WeaponsViewsContainer.cs" />
+     <Compile Include="Assets\Code\Input\Controls\GamePlayerInput.cs" />
+     <Compile Include="Assets\Code\Shooting\LazerGun.cs" />
+     <Compile Include="Assets\Code\Input\MovableInputProvider.cs" />
+     <Compile Include="Assets\Code\Movement\CMonoTransform.cs" />
+     <Compile Include="Assets\Code\DamageAndHealth\Contracts\IDamageable.cs" />
+     <Compile Include="Assets\Code\Configs\MainConfig.cs" />
+     <Compile Include="Assets\Code\LifeTime\LifeTimeObject.cs" />
+     <Compile Include="Assets\Code\DamageAndHealth\Components\CHealth.cs" />
+     <Compile Include="Assets\Code\DamageAndHealth\Components\CArmor.cs" />
+     <Compile Include="Assets\Code\DamageAndHealth\Damageable.cs" />
+     <Compile Include="Assets\Code\DamageAndHealth\Components\CMonoHealth.cs" />
+     <Compile Include="Assets\Code\DamageAndHealth\Components\CMonoArmor.cs" />
+     <Compile Include="Assets\Code\DamageAndHealth\Systems\DeathSystem.cs" />
+     <Compile Include="Assets\Code\DamageAndHealth\Systems\DamageSystem.cs" />
+     <Compile Include="Assets\Code\DamageAndHealth\Components\DeathEvent.cs" />
+     <Compile Include="Assets\Code\DamageAndHealth\DamageDealer.cs" />
      <Folder Include="Assets\Code\EcsInit" />
+     <Folder Include="Assets\Code\Configs" />
+     <Folder Include="Assets\Code\LifeTime" />
      <Folder Include="Assets\Code\Shooting" />
      <Folder Include="Assets\Code\Input\Controls" />
+     <Folder Include="Assets\Code\DamageAndHealth\Systems" />
      <Folder Include="Assets\Code\Shooting\Components" />
      <Folder Include="Assets\Code\Input\Keyboard" />
      <Folder Include="Assets\Code\Input\Touchscreen" />
      <Folder Include="Assets\Code\Input" />
+     <Folder Include="Assets\Code\DamageAndHealth\Components" />
      <Folder Include="Assets\Code\Movement" />
      <Folder Include="Assets\Code" />
      <Folder Include="Assets\Code\MonstersLogic" />
@@ -96,6 +112,8 @@
      <Folder Include="Assets\Code\Shooting\Contracts" />
      <Folder Include="Assets\Code\MonstersLogic\Contracts" />
      <Folder Include="Assets\Code\MonstersLogic\Components" />
+     <Folder Include="Assets\Code\DamageAndHealth" />
+     <Folder Include="Assets\Code\DamageAndHealth\Contracts" />
      <Folder Include="Assets\Code\Shooting\Enums" />
      <Reference Include="UnityEngine">
      <HintPath>D:\UnityEngine\2021.3.22f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -349,8 +367,14 @@
      <Reference Include="UnityEditor.WindowsStandalone.Extensions">
      <HintPath>D:\UnityEngine\2021.3.22f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
      </Reference>
+     <Reference Include="Zenject-usage">
+     <HintPath>E:\ProjectHome\tanks-fighting\Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.Plastic.Newtonsoft.Json">
      <HintPath>E:\ProjectHome\tanks-fighting\Library\PackageCache\com.unity.collab-proxy@2.0.1\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+     </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
+     <HintPath>E:\ProjectHome\tanks-fighting\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Plastic.Antlr3.Runtime">
      <HintPath>E:\ProjectHome\tanks-fighting\Library\PackageCache\com.unity.collab-proxy@2.0.1\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
@@ -364,6 +388,9 @@
      <Reference Include="Unity.VisualScripting.IonicZip">
      <HintPath>E:\ProjectHome\tanks-fighting\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
      </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
+     <HintPath>E:\ProjectHome\tanks-fighting\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
+     </Reference>
      <Reference Include="unityplastic">
      <HintPath>E:\ProjectHome\tanks-fighting\Library\PackageCache\com.unity.collab-proxy@2.0.1\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
      </Reference>
@@ -373,20 +400,11 @@
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
      <HintPath>E:\ProjectHome\tanks-fighting\Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
      </Reference>
-     <Reference Include="ReportGeneratorMerged">
-     <HintPath>E:\ProjectHome\tanks-fighting\Library\PackageCache\com.unity.testtools.codecoverage@1.2.2\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
-     </Reference>
-     <Reference Include="Zenject-usage">
-     <HintPath>E:\ProjectHome\tanks-fighting\Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
-     </Reference>
-     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
-     <HintPath>E:\ProjectHome\tanks-fighting\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
-     </Reference>
-     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
-     <HintPath>E:\ProjectHome\tanks-fighting\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
-     </Reference>
      <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
      <HintPath>E:\ProjectHome\tanks-fighting\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
+     </Reference>
+     <Reference Include="ReportGeneratorMerged">
+     <HintPath>E:\ProjectHome\tanks-fighting\Library\PackageCache\com.unity.testtools.codecoverage@1.2.2\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
      </Reference>
      <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
      <HintPath>E:\ProjectHome\tanks-fighting\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>

@@ -2,6 +2,6 @@ namespace Code.Shooting.Contracts
 {
     public interface IDamageable
     {
-        void ApplyDamage(int damage);
+        void ApplyDamage(float damage);
     }
 }

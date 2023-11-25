@@ -7,9 +7,9 @@ namespace Code.Shooting.Components
     [Serializable]
     public struct CShooter
     {
-        public IWeapon CurrentWeapon;
-        public Transform StartShootPos;
-        public Transform CannonEndPos;
-        public WeaponsViewsContainer WeaponsViewsContainer;
+        public IWeapon currentWeapon;
+        public Transform startPosition;
+        public Transform shootPosition;
+        public WeaponsViewsContainer weaponsViewsContainer;
     }
 }

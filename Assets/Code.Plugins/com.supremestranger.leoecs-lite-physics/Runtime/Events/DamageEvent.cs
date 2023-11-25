@@ -1,7 +1,7 @@
 namespace LeoEcsPhysics
 {
-    public class DamageEvent
+    public struct DamageEvent
     {
-        
+        public float applyDamage;
     }
 }

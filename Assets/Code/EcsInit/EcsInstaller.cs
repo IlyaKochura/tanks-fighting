@@ -1,4 +1,6 @@
 using AB_Utility.FromSceneToEntityConverter;
+using Code.Configs;
+using Code.DamageAndHealth.Systems;
 using Code.Input;
 using Code.MonstersLogic;
 using Code.Movement;
@@ -19,8 +21,8 @@ namespace Code.EcsInit
     public class EcsInstaller : MonoInstaller
     {
         [SerializeField] private MovableInputProvider _movableInputProvider;
-        [SerializeField] private Projectile _projectile;
-        
+        [SerializeField] private MainConfig _mainConfig;
+
         EcsWorld _world;
         IEcsSystems _systems;
 
@@ -42,6 +44,7 @@ namespace Code.EcsInit
             RegisterMovement();
             RegisterShootSystems();
             RegisterMonstersLogic();
+            RegisterDamageSystems();
 
             _systems?.Init ();
         }
@@ -75,7 +78,7 @@ namespace Code.EcsInit
         {
             var objectPool = Container.Resolve<IObjectPool>();
 
-            _systems.Add(new SelectWeaponSystem(_projectile, objectPool, _movableInputProvider))
+            _systems.Add(new SelectWeaponSystem(objectPool, _movableInputProvider, _mainConfig))
                 .Add(new RegisterShootSystem(_movableInputProvider))
                 .Add(new ShootSystem())
                 .DelHere<CShootOneFrame>();
@@ -84,6 +87,13 @@ namespace Code.EcsInit
         private void RegisterMonstersLogic()
         {
             _systems.Add(new MonsterSystem());
+        }
+
+        private void RegisterDamageSystems()
+        {
+            _systems.Add(new DamageSystem())
+                .DelHere<DamageEvent>()
+                .Add(new DeathSystem());
         }
 
         void OnDestroy()

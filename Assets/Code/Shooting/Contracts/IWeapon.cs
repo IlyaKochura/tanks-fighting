@@ -6,6 +6,6 @@ namespace Code.Shooting.Contracts
     public interface IWeapon
     {
         public WeaponsViewVariants WeaponsViewVariant { get; }
-        void Shoot(Transform shootPos, Transform cannonEnd);
+        void Shoot(Transform startPosition, Transform shootPosition);
     }
 }

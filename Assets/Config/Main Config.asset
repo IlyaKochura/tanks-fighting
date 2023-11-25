@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 680d7ac63e7c44a29b26a0cb4137040a, type: 3}
+  m_Name: Main Config
+  m_EditorClassIdentifier: 
+  _lazerGunDamage: 70
+  _tankCannonDamage: 90
+  _monsterLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _lazerGunEffect: {fileID: 5724181697269885966, guid: 0cb63513cf0ed3645903b7261835425c, type: 3}
+  _projectilePrefab: {fileID: 466411363453399093, guid: 6b27e4012ea35f34fba9adcc97447859, type: 3}
