@@ -22,4 +22,4 @@ MonoBehaviour:
     chanceSpawn: 0
   - monsterPrefab: {fileID: 1076781582927293253, guid: 558ae74fb1668204f934e86598f2eb45, type: 3}
     chanceSpawn: 1
-  _maxMonsterSpawned: 10
+  _maxMonsterSpawned: 150
